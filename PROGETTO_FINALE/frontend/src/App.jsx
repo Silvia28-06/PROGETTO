@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import './App.css';
+import './App.css';
 import LoginForm from './components/LoginForm';
 import RegForm from './components/RegForm';
 import Campo from './components/Campo';
@@ -151,14 +151,19 @@ function App() {
 
     if (currentView == "pagIniziale") {
         return (
-            <div className="container">
-                <h1>MSG Centro Sportivo</h1>
+            <div className="container-form">
+                <h1 className="main-title"> "MSG" <br></br> Centro Sportivo</h1>
+                
+                <div id="registrati_div">
+                    <h2 className="form-title">REGISTRATI</h2> 
                 <RegForm
                     onRegisterSubmit={handleRegisterSubmit}
-                />
+                /></div>
+                <div id="accedi_div" >
+                    <h2 className="form-title">ACCEDI</h2>
                 <LoginForm
                     onSubmitForm={handleLoginSubmit}
-                />
+                /></div>
             </div>
         );
     }
