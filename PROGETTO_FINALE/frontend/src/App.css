@@ -13,7 +13,7 @@
 
 /* Posizionamento dei form: sinistra e destra */
 #registrati_div, #accedi_div {
-    position: absolute; /*Metti questi div in posizioni esatte che non influenzano la posizione degli altri elementi*/
+    position: absolute; /*Metto questi div in posizioni esatte che non influenzano la posizione degli altri elementi*/
     top: 240px; /* distanza dal titolo */
     width: 30%;
     min-width: 280px;
