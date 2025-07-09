@@ -16,9 +16,9 @@ function LoginForm({ onSubmitForm }) {
 
     return (
         <form onSubmit={handleLogin}>
-            <h2>Login</h2>
+            
             <div>
-                <label htmlFor="login-email">Email:</label>
+                <label className="login-email">Email:</label>
                 <input
                     type="email"
                     id="login-email"
@@ -28,7 +28,7 @@ function LoginForm({ onSubmitForm }) {
                 />
             </div>
             <div>
-                <label htmlFor="login-password">Password:</label>
+                <label className="login-password">Password:</label>
                 <input
                     type="password"
                     id="login-password"
@@ -37,7 +37,7 @@ function LoginForm({ onSubmitForm }) {
                     required
                 />
             </div>
-            <button type="submit">Login</button>
+            <button id="submit-log" type="submit">Login</button>
         </form>
     );
 }
