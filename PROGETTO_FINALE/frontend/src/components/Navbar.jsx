@@ -1,21 +1,17 @@
 import React from 'react';
 
 
-function Navbar({ handleLogout }) {
+function Navbar({ handleLogout, handleAnnulla }) {
     return (
-        <div>
-        <h1>MSG centro sportivo</h1>
         <nav className="navbar">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li>
-                    <button onClick={handleLogout}>
-                        Logout
+            <button id="home-button" onClick={handleAnnulla}>
+                        HOME
                     </button>
-                </li>
-            </ul>
+
+                    <button id="logout-button" onClick={handleLogout}>
+                        LOGOUT
+                    </button>
         </nav>
-      </div>
     );
 }
 
