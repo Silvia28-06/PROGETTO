@@ -177,6 +177,7 @@ function App() {
                 <img className="logo" src="https://live.staticflickr.com/65535/54643310871_e2e1569df3_b.jpg"></img>
                 <Navbar
                     onLogout={handleLogout}
+                    onAnnulla={handleAnnulla}
                 />
                 <div class="mainnav">
                     <h2>INFORMAZIONI SULLA STRUTTURA </h2>
