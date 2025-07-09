@@ -152,8 +152,8 @@ function App() {
     if (currentView == "pagIniziale") {
         return (
             <div className="container-form">
-                <span class="main-title" id="arancione">"MSG"</span><br></br>
-                 <span class="main-title" id="giallo">CENTRO SPORTIVO BARI</span>
+                <span class="main-title" id="giallo">MSG - CENTRO SPORTIVO BARI</span><br></br>
+                <div class="overlay"></div>
                 
                 <div id="registrati_div">
                     <h2 className="form-title">REGISTRATI</h2> 
