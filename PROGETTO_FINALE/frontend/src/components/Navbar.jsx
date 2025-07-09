@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-function Navbar({ handleLogout, handleAnnulla }) {
+function Navbar({ onLogout, onAnnulla }) {
     return (
         <nav className="navbar">
-            <button id="home-button" onClick={handleAnnulla}>
+            <button id="home-button" onClick={onAnnulla}>
                         HOME
                     </button>
 
-                    <button id="logout-button" onClick={handleLogout}>
+                    <button id="logout-button" onClick={onLogout}>
                         LOGOUT
                     </button>
         </nav>
