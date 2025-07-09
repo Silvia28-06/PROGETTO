@@ -3,6 +3,11 @@
     box-sizing: border-box;
     padding: 40px 5vw;
     position: relative;
+    background-image: url('../public/logo.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
 }
 
 .main-title {
@@ -17,10 +22,19 @@ flex-direction: column;
 gap: 20px;
 }
 
-#arancione{
-  font-size: 50px;
-  color: rgb(235, 167, 20);
+.overlay{
+    background-image: url('../public/LOGO1.jpg');
+     background-repeat: no-repeat;
+    background-position: top left;
+    position: absolute;
+    top: 6.5%;
+    left: 18%;
+    background-size: cover;
+    height: 10vh;
+    width: 20vh;
 }
+
+
 #giallo{
   font-size: 50px;
   color: gold;
@@ -29,7 +43,7 @@ gap: 20px;
 /* Posizionamento dei form: sinistra e destra */
 #registrati_div, #accedi_div {
     position: absolute; /*Metto questi div in posizioni esatte che non influenzano la posizione degli altri elementi*/
-    top: 350px; /* distanza dal titolo */
+    top: 250px; /* distanza dal titolo */
     width: 30%;
     min-width: 280px;
     min-height: 280px;
@@ -43,6 +57,8 @@ gap: 20px;
     
 }
 
+
+
 /* Registrazione a sinistra */
 #registrati_div {
     left: 14vw;
@@ -54,6 +70,7 @@ gap: 20px;
 }
 
 .form-title {
+    
     font-size: 1.8rem;
     font-weight: bold;
     text-align: center;
