@@ -135,7 +135,7 @@ nav > button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: lightgrey;
+    background-color: #fce358;
     padding-left: 5%;
 }
 .vertical-scroll > h2{
