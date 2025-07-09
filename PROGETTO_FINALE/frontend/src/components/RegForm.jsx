@@ -10,7 +10,7 @@ function RegForm({ onRegisterSubmit}){
     };
     return(
         <form onSubmit={handleSubmit}>
-            
+
 
             <div>
                 <label className="username">Username:</label>
@@ -20,7 +20,7 @@ function RegForm({ onRegisterSubmit}){
                     value={username}
                     onChange={(e)=> setUsername(e.target.value)}
                     required
-                    />
+                />
             </div>
 
             <div>
@@ -37,12 +37,12 @@ function RegForm({ onRegisterSubmit}){
             <div>
                 <label className="password">Password:</label>
                 <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e)=>setPassword(e.target.value)}
-                required
-                minLength={6}
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e)=>setPassword(e.target.value)}
+                    required
+                    minLength={6}
                 />
             </div>
 
