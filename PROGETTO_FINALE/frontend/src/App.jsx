@@ -5,6 +5,8 @@ import RegForm from './components/RegForm';
 import Campo from './components/Campo';
 import PrenotaForm from './components/PrenotaForm';
 import Navbar from "./components/Navbar";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faShower, faCar, faTableTennisPaddleBall, faMugSaucer, faShirt} from '@fortawesome/free-solid-svg-icons';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
@@ -152,59 +154,78 @@ function App() {
     if (currentView == "pagIniziale") {
         return (
             <div className="container-form">
-                <span class="main-title" id="giallo">MSG - CENTRO SPORTIVO BARI</span><br></br>
-                <div class="overlay"></div>
-                
+                <div id = "logo-container">
+                <img className="logo" src="https://live.staticflickr.com/65535/54643310871_e2e1569df3_b.jpg"></img>
+                </div>
                 <div id="registrati_div">
-                    <h2 className="form-title">REGISTRATI</h2> 
-                <RegForm
-                    onRegisterSubmit={handleRegisterSubmit}
-                /></div>
+                    <h2 className="form-title">REGISTRATI</h2>
+                    <RegForm
+                        onRegisterSubmit={handleRegisterSubmit}
+                    /></div>
                 <div id="accedi_div" >
                     <h2 className="form-title">ACCEDI</h2>
-                <LoginForm
-                    onSubmitForm={handleLoginSubmit}
-                /></div>
+                    <LoginForm
+                        onSubmitForm={handleLoginSubmit}
+                    /></div>
             </div>
         );
     }
 {/*key={campo._id}*/}
     if (currentView == "pagHome") {
         return (
-            <div className="container">
-                <h1>MSG Centro Sportivo</h1>,
+            <div class="home-container">
+                <img className="logo" src="https://live.staticflickr.com/65535/54643310871_e2e1569df3_b.jpg"></img>
                 <Navbar
                     onLogout={handleLogout}
-                />,
-                <h2>I nostri campi</h2>,
-                {campi.map(campo => (
-                    <Campo
-                        
-                        key={campo._id}
-                        campo={campo}
-                        currentUser={currentUser}
-                        recensioni={recensioni}
-                        onRecensioneCreated={onRecensioneCreated}
-                        onDeleteRecensione={handleDeleteRecensione}
-                        onPrenota={handlePrenota}
-                    />
-                ))}
+                />
+                <div class="mainnav">
+                    <h2>INFORMAZIONI SULLA STRUTTURA </h2>
+                    <p>E’ possibile prenotare campi da pallavolo, basket, calcio, padel e tennis.</p>
+                    <h3>I nostri servizi:</h3>
+                    <ul>
+                        <li><FontAwesomeIcon icon={faShower} /><p>DOCCE</p></li>
+                        <li><FontAwesomeIcon icon={faMugSaucer} /><p>BAR</p></li>
+                        <li><FontAwesomeIcon icon={faShirt} /><p>SPOGLIATOI MASCHILI E FEMMINILI</p></li>
+                        <li><FontAwesomeIcon icon={faCar} /><p>PARCHEGGIO</p></li>
+                        <li><FontAwesomeIcon icon={faTableTennisPaddleBall} /><p>NOLEGGIO ATTREZZATURA</p></li>
+                    </ul>
+                    <h3>Limiti di prenotazione</h3>
+                    <ul>
+                        <li>Puoi prenotare fino ad un’ora in anticipo</li>
+                        <li>Puoi prenotare fino a 7 giorni</li>
+                    </ul>
+                </div>
+                <div class="vertical-scroll">
+                    <h2>I NOSTRI CAMPI</h2>
+                    {campi.map(campo => (
+                        <Campo
+
+                            key={campo._id}
+                            campo={campo}
+                            currentUser={currentUser}
+                            recensioni={recensioni}
+                            onRecensioneCreated={onRecensioneCreated}
+                            onDeleteRecensione={handleDeleteRecensione}
+                            onPrenota={handlePrenota}
+                        />
+                    ))}
+                </div>
             </div>
-        )
-    }
+                )
+                }
 
-    return (
-        <div className="container">
-            <h1>MSG Centro Sportivo</h1>
-            <Navbar
-                onLogout={handleLogout}
-            />
-            <PrenotaForm
-                campoId={campoPrenotato}
-                onAnnulla={handleAnnulla}
-            />
-        </div>
-    )
-}
+                return (
+                <div className="container">
+                    <h1>MSG Centro Sportivo</h1>
+                    <Navbar
+                        onLogout={handleLogout}
+                    />
+                    <PrenotaForm
+                        campoId={campoPrenotato}
+                        onAnnulla={handleAnnulla}
+                    />
+                </div>
+                )
+                }
 
-export default App;
+                export default App;
