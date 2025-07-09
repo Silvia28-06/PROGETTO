@@ -47,16 +47,11 @@ function Campo({ campo, currentUser, recensioni, onRecensioneCreated, onDeleteRe
 
   
   return (
-    <div>
-      
-
-      <div key={campo._id} className="campo-item">
+      <div>
+      <div className="campo-container">
        <h3>{campo.nome}</h3> {/* Mostra il nome del campo */}
         <img src={campo.immagine} alt={campo.nome} /> {/* Mostra l'immagine del campo */}
       </div>
-  
-  
-
 
       <h3>Recensioni</h3>
       {recensioniCampo.map(recensione => (
@@ -68,21 +63,20 @@ function Campo({ campo, currentUser, recensioni, onRecensioneCreated, onDeleteRe
         />
       ))}
 
-
       {/*Form per scrivere una nuova recensione. */}
 
-      <form onSubmit={handleSubmit}>
+      <form id="form-recensioni" onSubmit={handleSubmit}>
         <textarea
           placeholder="Scrivi la tua recensione..."
           value={testo}
           onChange={(e) => setTesto(e.target.value)}
         />
-        <button type="submit">Invia Recensione</button>
+        <button type="submit" className="campo-buttons">INVIA RECENSIONE</button>
       </form>
 
 
 {/*Bottone che chiama onPrenota (passato da App.jsx) e dice all’app che si vuole prenotare questo campo. */}
-        <button onClick={() => onPrenota(campo._id)}>Prenota</button>
+        <button className="campo-buttons" onClick={() => onPrenota(campo._id)}>PRENOTA QUESTO CAMPO</button>
     </div>
   );
 }
