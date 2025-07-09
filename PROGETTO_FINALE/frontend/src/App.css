@@ -1,5 +1,10 @@
 body{
     font-family: Verdana;
+    background-image: url(../public/logo.jpg);
+     background-repeat: no-repeat;
+     background-position: center center;
+     background-size: cover;
+     height: 100px;
 }
 
 /* Posizionamento dei form: sinistra e destra */
@@ -52,7 +57,7 @@ body{
 
 .email{
     color:white ;
-    padding: 35px;
+    padding: 33px;
     font-size: 20px;
 }
 
