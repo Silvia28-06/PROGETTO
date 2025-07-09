@@ -10,10 +10,10 @@ function RegForm({ onRegisterSubmit}){
     };
     return(
         <form onSubmit={handleSubmit}>
-            <h2>Registrati</h2>
+            
 
             <div>
-                <label htmlFor="username">Username:</label>
+                <label className="username">Username:</label>
                 <input
                     type="text"
                     id="username "
@@ -24,7 +24,7 @@ function RegForm({ onRegisterSubmit}){
             </div>
 
             <div>
-                <label htmlFor="email">Email:</label>
+                <label className="email">Email:</label>
                 <input
                     type="email"
                     id="email"
@@ -35,7 +35,7 @@ function RegForm({ onRegisterSubmit}){
             </div>
 
             <div>
-                <label htmlFor="password">Password:</label>
+                <label className="password">Password:</label>
                 <input
                 type="password"
                 id="password"
@@ -46,7 +46,7 @@ function RegForm({ onRegisterSubmit}){
                 />
             </div>
 
-            <button type="submit">Registrati</button>
+            <button id="submit-reg" type="submit">Registrati</button>
         </form>
     )
 }
