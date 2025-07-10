@@ -144,10 +144,14 @@ function App() {
         }
     };
 
-    const handlePrenota = function (campoId) {
-        setCurrentView("pagPrenotazione");
-        setCampoPrenotato(campoId);
-    }
+    
+
+   // Cambio questa funzione, SALVANDO TUTTO L'OGGETTO CAMPO:
+const handlePrenota = (campoId) => {
+    const campo = campi.find(c => c._id === campoId);
+    setCampoPrenotato(campo);
+    setCurrentView("pagPrenotazione");
+};
 
     const handleAnnulla = function () {
         setCurrentView("pagHome");
@@ -196,7 +200,7 @@ function App() {
                     <h3>Limiti di prenotazione</h3>
                     <ul>
                         
-                        <li>Puoi prenotare fino a 7 giorni in anticipo</li>
+                        <li>Puoi prenotare fino a 7 giorni</li>
                     </ul>
                 </div>
                 <div className="vertical-scroll">
@@ -220,15 +224,19 @@ function App() {
 
                 return (
                 <div className="container">
-                    <h1>MSG Centro Sportivo</h1>
+                    <div id = "logo-container1">
+                    <img className="logo" src="https://live.staticflickr.com/65535/54643310871_e2e1569df3_b.jpg"></img>
+                    </div>
                     <Navbar
                         onLogout={handleLogout}
                         onAnnulla={handleAnnulla}
                     />
                     <PrenotaForm
-                        campoId={campoPrenotato}
+                        campoId={campoPrenotato?._id}
+                        campo={campoPrenotato}//new per passare il nome del campo, in fase di prenotazione
                         onAnnulla={handleAnnulla}
                         setCurrentView={setCurrentView}
+                        
                     />
                 </div>
                 )
