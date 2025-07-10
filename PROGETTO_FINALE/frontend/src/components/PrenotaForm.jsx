@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-function PrenotaForm({ campoId, onAnnulla, setCurrentView}) {
+
+function PrenotaForm({ campoId,campo, onAnnulla , setCurrentView}) {
   const [formData, setFormData] = useState(null);
   const [messaggio, setMessaggio] = useState("");
 //È una funzione riutilizzabile per ogni input. 
@@ -18,17 +19,27 @@ function PrenotaForm({ campoId, onAnnulla, setCurrentView}) {
             const accessToken = localStorage.getItem('accessToken');
             const response = await fetch(`${API_BASE_URL}/campi/prenotazioni/${campoId}`, {
                 method: 'POST',
-                headers: {'Authorization': `Bearer ${accessToken}`,
-                'Content-Type':'application/json'},
-                body: JSON.stringify({date:formData}),
+                headers: {'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json'},
+                body: JSON.stringify({date: formData}),
             });
-            const data=await response.json()
+            /*if (!response.ok) {
+                const errorData = await response.json();
+                setCurrentView("pagHome");
+                throw new Error(errorData?.message || `Errore prenotazione: ${response.status}`);
+            }
+            setCurrentView("pagHome");
+            console.log("Campo prenotato con successo!")
+        } catch (error) {
+            console.error("Errore nella prenotazione:", error);
+        }
+    };*/
+     const data=await response.json()
             if (!response.ok) {
                 setMessaggio(data.message || `Errore prenotazione: ${response.status}`);
                return;
             }
             setMessaggio(data.message || "Campo prenotato con successo!");
-            setTimeout(()=>setCurrentView("pagHome"),2000)
+            setTimeout(()=>setCurrentView("pagHome"), 2500)
         } catch (error) {
             console.error("Errore prenotazione campo:", error);
             setMessaggio("errore del server");
@@ -36,7 +47,7 @@ function PrenotaForm({ campoId, onAnnulla, setCurrentView}) {
     };
 
 
-  //Chiama onAnnulla, che è in App.jsx, cambia la view e trna alla homepage.
+  //Chiama onAnnulla, che è in App.jsx, cambia la view e torna alla homepage.
   const handleCancel = (e) => {
     e.preventDefault();
     onAnnulla();
@@ -44,40 +55,43 @@ function PrenotaForm({ campoId, onAnnulla, setCurrentView}) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Prenota Campo</h2>
+      <div id="prenota_div">
+      <h2 className="prenota-form">STAI PRENOTANDO UN: <span className="nome-campo">{campo?.nome || "Campo"}</span></h2>
 
-{/* <select name="date" value={formData.data} onChange={handleChange} required>--->
- serve a mostrare un menu a tendina per selezionare un giorno e a collegare il valore scelto allo stato di React (formData.data).
- STESSA COSA FATTA GIU PER LA DATA*/}
+
+ <div className="input-div">
       <label> Data e ora: </label>
         <select name="date" value={formData} onChange={handleChange} required>
           <option value="">-- Seleziona giorno --</option>
-          <option value="17/07/11:00-12:00">17/07 11:00-12:00</option>
-          <option value="17/07/12:00-13:00">17/07 12:00-13:00</option>
-          <option value="18/07/11:00-12:00">18/07 11:00-12:00</option>
-          <option value="18/07/12:00-13:00">18/07 12:00-13:00</option>
-          <option value="19/07/11:00-12:00">19/07 11:00-12:00</option>
-          <option value="19/07/12:00-13:00">19/07 12:00-13:00</option>
-          <option value="20/07/11:00-12:00">20/07 11:00-12:00</option>
-          <option value="20/07/12:00-13:00">20/07 12:00-13:00</option>
-          <option value="21/07/11:00-12:00">21/07 11:00-12:00</option>
-          <option value="21/07/12:00-13:00">21/07 12:00-13:00</option>
-          <option value="22/07/11:00-12:00">22/07 11:00-12:00</option>
-          <option value="22/07/12:00-13:00">22/07 12:00-13:00</option>
-          <option value="23/07/11:00-12:00">23/07 11:00-12:00</option>
-          <option value="23/07/12:00-13:00">23/07 12:00-13:00</option>
-          <option value="24/07/11:00-12:00">24/07 11:00-12:00</option>
-          <option value="24/07/12:00-13:00">24/07 12:00-13:00</option>
+          <option value="17/07|11:00-12:00">17/07 11:00-12:00</option>
+          <option value="17/07|12:00-13:00">17/07 12:00-13:00</option>
+          <option value="18/07|11:00-12:00">18/07 11:00-12:00</option>
+          <option value="18/07|12:00-13:00">18/07 12:00-13:00</option>
+          <option value="19/07|11:00-12:00">19/07 11:00-12:00</option>
+          <option value="19/07|12:00-13:00">19/07 12:00-13:00</option>
+          <option value="20/07|11:00-12:00">20/07 11:00-12:00</option>
+          <option value="20/07|12:00-13:00">20/07 12:00-13:00</option>
+          <option value="21/07|11:00-12:00">21/07 11:00-12:00</option>
+          <option value="21/07|12:00-13:00">21/07 12:00-13:00</option>
+          <option value="22/07|11:00-12:00">22/07 11:00-12:00</option>
+          <option value="22/07|12:00-13:00">22/07 12:00-13:00</option>
+          <option value="23/07|11:00-12:00">23/07 11:00-12:00</option>
+          <option value="23/07|12:00-13:00">23/07 12:00-13:00</option>
+          <option value="24/07|11:00-12:00">24/07 11:00-12:00</option>
+          <option value="24/07|12:00-13:00">24/07 12:00-13:00</option>
         </select>
+        </div>
       <br />
-      <button type="submit">CONFERMA PRENOTAZIONE</button>
-      <button onClick={handleCancel}>ANNULLA</button>
-        {messaggio &&(
+      <button type="submit" className="button">CONFERMA PRENOTAZIONE</button>
+      <button onClick={handleCancel} className="button-link">ANNULLA</button>
+       {messaggio &&(
             <p style={{color: messaggio.includes("successo") ? "green" : "red", marginTop:'1em'}}>
                 {messaggio}
             </p>
         )}
+      </div>
     </form>
+    
   );
 };
 
