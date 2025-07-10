@@ -327,3 +327,13 @@ height:auto;
     color: rgb(231, 207, 71);
     font-size: 3.5vh;
 }
+
+.messaggio-successo {
+  color: green;
+  margin-top: 1em;
+}
+
+.messaggio-errore {
+  color: red;
+  margin-top: 1em;
+}
