@@ -223,6 +223,7 @@ function App() {
                     <h1>MSG Centro Sportivo</h1>
                     <Navbar
                         onLogout={handleLogout}
+                        onAnnulla={handleAnnulla}
                     />
                     <PrenotaForm
                         campoId={campoPrenotato}
