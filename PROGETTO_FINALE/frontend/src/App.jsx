@@ -196,7 +196,7 @@ function App() {
                     <h3>Limiti di prenotazione</h3>
                     <ul>
                         
-                        <li>Puoi prenotare fino a 7 giorni</li>
+                        <li>Puoi prenotare fino a 7 giorni in anticipo</li>
                     </ul>
                 </div>
                 <div className="vertical-scroll">
