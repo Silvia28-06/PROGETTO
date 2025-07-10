@@ -13,14 +13,19 @@ function Recensione({ recensione, currentUser, onDeleteRecensione }) {
     }, []);
 
     return (
-        <div>
-            <h2>{recensione.autore.username || 'Utente Anonimo'}</h2>
+        <div className="recensione-container">
+            <div className="recensione-header">
+            <h4>{recensione.autore.username || 'Utente Anonimo'}</h4>
+            <h5>{recensione.createdAt.slice(0,10)}</h5>
+            </div>
+            <div className="testo-recensione">
             <p>{recensione.testo}</p>
             {isAuthor && (
                 <button onClick={() => onDeleteRecensione(recensione._id)}>
-                    Cancella recensione
+                    ELIMINA RECENSIONE
                 </button>
             )}
+            </div>
         </div>
     );
 }
