@@ -54,7 +54,7 @@ function Campo({ campo, currentUser, recensioni, onRecensioneCreated, onDeleteRe
       <div>
       <div className="campo-container">
        <h3>{campo.nome}</h3> {/* Mostra il nome del campo */}
-        <img src={campo.immagine} alt={campo.nome} /> {/* Mostra l'immagine del campo */}
+        <img src={`/img/${campo.immagine}`} alt={campo.nome} /> {/* Mostra l'immagine del campo */}
       </div>
       <div className="box-recensioni">
       <h3>Recensioni</h3>
