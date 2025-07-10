@@ -73,7 +73,7 @@ function PrenotaForm({ campoId, onAnnulla, setCurrentView}) {
       <button type="submit">CONFERMA PRENOTAZIONE</button>
       <button onClick={handleCancel}>ANNULLA</button>
         {messaggio &&(
-            <p style={{ marginTop:'1em'}}>
+            <p style={{color: messaggio.includes("successo") ? "green" : "red", marginTop:'1em'}}>
                 {messaggio}
             </p>
         )}
