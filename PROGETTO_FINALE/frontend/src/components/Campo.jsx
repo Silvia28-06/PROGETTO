@@ -56,7 +56,7 @@ function Campo({ campo, currentUser, recensioni, onRecensioneCreated, onDeleteRe
        <h3>{campo.nome}</h3> {/* Mostra il nome del campo */}
         <img src={campo.immagine} alt={campo.nome} /> {/* Mostra l'immagine del campo */}
       </div>
-
+      <div className="box-recensioni">
       <h3>Recensioni</h3>
       {recensioniCampo.map(recensione => (
         
@@ -67,7 +67,7 @@ function Campo({ campo, currentUser, recensioni, onRecensioneCreated, onDeleteRe
           currentUser={currentUser}
         />
       ))}
-
+      </div>
       {/*Form per scrivere una nuova recensione. */}
 
       <form id="form-recensioni" onSubmit={handleSubmit}>
